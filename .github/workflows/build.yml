@@ -142,7 +142,7 @@ jobs:
           # esbuild-register sees the file. Strip-only mode cannot emit the object a
           # numeric `enum` compiles to, which packages/utils/tests/misc.spec.ts needs
           # in order to exercise enumKeys(). Node 20 has no such flag.
-          NODE_OPTIONS: ${{ matrix.node-version >= 22 && --no-experimental-strip-types ||  }}
+          NODE_OPTIONS: ${{ matrix.node-version >= 22 && '--no-experimental-strip-types' || '' }}
       - name: Report Coverage
         uses: codecov/codecov-action@v4
         with:
